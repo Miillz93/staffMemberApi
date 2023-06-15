@@ -1,4 +1,5 @@
 using FollowUpApi.Models;
+using FollowUpApi.Services;
 using Microsoft.EntityFrameworkCore;
 
 
