@@ -1,4 +1,6 @@
-namespace FollowUpApi.Models;
+using FollowUpApi.Models;
+
+namespace FollowUpApi.Services;
 
 public class MemberService : IMemberService
 {

@@ -1,5 +1,6 @@
-namespace FollowUpApi.Models;
+using FollowUpApi.Models;
 
+namespace FollowUpApi.Services;
 
 public interface IMemberService
 {
