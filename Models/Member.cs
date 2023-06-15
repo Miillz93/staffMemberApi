@@ -10,7 +10,7 @@ public class Member
     [StringLength(50)]
     public string JobTitle {get; set;}
     [StringLength(50)]
-    public string EmailAdress {get; set;}
+    public string EmailAddress {get; set;}
     [StringLength(50)]
     public string FirstName {get; set;}
     [StringLength(50)]
