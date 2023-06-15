@@ -22,11 +22,10 @@ public class CsvMemberService : ICsvMemberService
     }
 
     public IEnumerable<Member> GetMembers(){
-        using (var csv = new CsvReader(_streamReader, CultureInfo.InvariantCulture))
-        {
-            var records = csv.GetRecords<Member>().ToList();
-            return records;
-        }
+        using var csv = new CsvReader(_streamReader, CultureInfo.InvariantCulture);
+        var records = csv.GetRecords<Member>().ToList();
+        return records;
+        
 
     }
 }
