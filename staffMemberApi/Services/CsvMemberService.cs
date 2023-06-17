@@ -40,7 +40,14 @@ public class CsvMemberService : ICsvMemberService
         return records;
     }
 
-
+    public Member GetMember(int id){
+        using var csv = new CsvReader(_streamReader, CultureInfo.InvariantCulture);
+        var record = csv.GetRecords<Member>()
+            .Where(x => x.Id == id)
+            .FirstOrDefault() ?? throw new NullReferenceException();
+        
+        return record;
+    }
 
 }
 
