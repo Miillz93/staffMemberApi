@@ -8,6 +8,9 @@ namespace FollowUpApi.Services;
 public interface ICsvMemberService
 {
     IEnumerable<Member> GetMembers();
+    IEnumerable<Member> GetMembers(int pageNumber, int pageSize);
+    Member GetMember(int id);
+
 }
 public class CsvMemberService : ICsvMemberService
 {
@@ -24,10 +27,21 @@ public class CsvMemberService : ICsvMemberService
     public IEnumerable<Member> GetMembers(){
         using var csv = new CsvReader(_streamReader, CultureInfo.InvariantCulture);
         var records = csv.GetRecords<Member>().ToList();
-        return records;
-        
 
+        return records;
     }
+    public IEnumerable<Member> GetMembers(int pageNumber, int pageSize){
+        using var csv = new CsvReader(_streamReader, CultureInfo.InvariantCulture);
+        var records = csv.GetRecords<Member>()
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return records;
+    }
+
+
+
 }
 
 
